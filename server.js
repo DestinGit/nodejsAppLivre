@@ -26,6 +26,9 @@ app.use(bodyParser.json());
 
 //-- Mes Routes
 app.get('/', (request, response) => {
+    // Pour connaitre dans quel environnement est actuellement l'appli : dev ou prod ?
+    // possible grace à l'instruction suivante : process.env.NODE_ENV
+    // qui renvoi 'production' si on est en production
     // importation de model
     let Message = require('./models/message');
     Message.all(function (messages) {
