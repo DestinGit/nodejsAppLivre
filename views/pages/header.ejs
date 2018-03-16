@@ -15,6 +15,11 @@
   <a href="/" class="header item">Accueil</a>
 </div>
 <div class="ui main container">
+    <!-- Afficher les message d'erreur -->
     <% if(locals.flash && locals.flash.error) { %>
         <div class="ui negative message"><%= flash.error %></div>
     <% } %>
+    <!--  Afficher les message de success -->
+    <% if(locals.flash && locals.flash.success) { %>
+    <div class="ui positive message"><%= flash.success %></div>
+<% } %>

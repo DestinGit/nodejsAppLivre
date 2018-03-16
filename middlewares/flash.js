@@ -1,6 +1,6 @@
 // Exportation du module middleware
 module.exports = function(request, response, next) {
-    // logique de gestion des message flass dans la session
+    // logique de gestion des message flash dans la session
     if(request.session.flash) {
         response.locals.error = request.session.flash;
         request.session.flash = undefined;
@@ -13,7 +13,6 @@ module.exports = function(request, response, next) {
         }
         request.session.flash[type] = content;
     }
-    
     // appel vers middleware qui suit
     next();
 };
