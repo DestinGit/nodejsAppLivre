@@ -23,7 +23,7 @@
       <div class="content">
       <div class="metadata">
         <div class="date">
-          <%= message.create_at %>
+          <%= message.create_at.fromNow() %>
         </div>        
       </div>
         <div class="text"><%= message.content %></div>
