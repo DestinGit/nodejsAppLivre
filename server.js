@@ -53,5 +53,14 @@ app.post('/', (request, response) => {
     }
 });
 
+app.get('/message/:id', (request, response) => {
+    request.param('id')
+    // request.params.id
+    let Message = require('./models/message');
+    Message.find(request.param('id'), (message) => {
+        response.render('message/show', {message: message});
+    });
+});
+
 // Lancement du serveur
 app.listen(8010);

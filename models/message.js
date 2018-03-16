@@ -7,10 +7,18 @@ class Message {
         this.row = row;
     }
 
+    // Getters
+    //id
+    get id() {
+        return this.row.id;
+    }
+
+    //content
     get content() {
         return this.row.content;
     }
 
+    //create_at
     get create_at() {
         return moment(this.row.create_at);
     }
@@ -28,6 +36,14 @@ class Message {
             if(err) throw err;
             // A Eclaircir
             callback(rows.map((row) => new Message(row)));
+        })
+    }
+
+    static find(id, callback) {
+        connection.query('SELECT * FROM messages WHERE id = ? LIMIT 1', [id],(err, rows) => {
+            if(err) throw err;
+            // A Eclaircir
+            callback(new Message(rows[0]));
         })
     }
 }
