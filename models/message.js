@@ -26,7 +26,7 @@ class Message {
     static create(content, callback) {
         connection.query('INSERT INTO messages SET content = ?, create_at = ?', 
         [content, new Date()], (err, result) => {
-            if(err) throw err
+            if(err) throw err;
             callback(result);
         })
     }
